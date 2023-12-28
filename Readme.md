@@ -1,0 +1,2 @@
+#Mandatory file extensions#
+A file extension must be provided when using the import keyword to resolve relative or absolute specifiers. Directory indexes (e.g. './src/index.js') must also be fully specified.
