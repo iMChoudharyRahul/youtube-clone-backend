@@ -33,6 +33,23 @@ userRouter.post("/login", loginUser);
 
 //Secured Route
 userRouter.post("/logout", verifyJwt, logoutUser);
-userRouter.post("/logout", refreshAccessToken);
+userRouter.post("/refresh-token", refreshAccessToken);
+userRouter.post("/change-password", verifyJwt, changeCurrentPassword);
+
+userRouter.get("/user-details", verifyJwt, getCurrentUser);
+
+userRouter.put("/update-account", verifyJwt, updateAccountUser);
+userRouter.patch(
+  "/update-avatar",
+  verifyJwt,
+  upload.single("avatar"),
+  updateUserAvatar
+);
+userRouter.patch(
+  "/cover-image",
+  verifyJwt,
+  upload.single("coverImage"),
+  updateUserCoverImage
+);
 
 export default userRouter;
